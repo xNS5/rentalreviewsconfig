@@ -1,0 +1,5 @@
+venv/
+*.env
+*_certificate.json
+__init__.py
+__pycache__/

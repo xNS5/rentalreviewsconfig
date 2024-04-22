@@ -1,0 +1,10 @@
+{
+  "name": "nav",
+  "nav_list": [
+    { "name": "Home", "url": "/" },
+    { "name": "Reviews", "url": "/reviews" },
+    { "name": "Resources", "url": "/resources" },
+    { "name": "About", "url": "/about" },
+    { "name": "Contact", "url": "/contact" }
+  ]
+}
