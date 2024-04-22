@@ -14,7 +14,8 @@ paths = {
 # Certificates for staging + production databases
 server_certificates = {
     "Production": "./production_certificate.json",
-    "Staging": "./staging_certificate.json"
+    "Staging": "./staging_certificate.json",
+    "Read-Only": "./read-only_certificate.json"
 }
 
 def populate(db, client):
@@ -131,6 +132,6 @@ if __name__ == "__main__":
     database_action = pyinput.inputMenu(["Test", "Seed", "Clear", "Re-seed"], lettered=True, numbered=False)
     database_environment = ""
     if database_selection != "MongoDB":
-        database_environment = pyinput.inputMenu(["Production", "Staging"], lettered=True, numbered=False)
+        database_environment = pyinput.inputMenu(list(server_certificates.keys()), lettered=True, numbered=False)
 
     main(database_selection, database_action, database_environment)
