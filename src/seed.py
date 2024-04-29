@@ -27,7 +27,6 @@ def populate(db, client):
                 inputFile_json = json.load(inputFile)
                 if client == "MongoDB":
                     file_name = inputFile_json["name"]
-                    inputFile_json.pop('name', None)
                     seed_arr.append({"_id": file_name, **inputFile_json})
                 else:
                     seed_arr.append(inputFile_json)
@@ -40,7 +39,6 @@ def populate(db, client):
                     batch = db.batch()
                     for seed in seed_arr:
                         doc_ref = db.collection(collection_prefix).document(seed["name"])
-                        seed.pop('name', None)
                         batch.set(doc_ref, seed)
                     batch.commit()
         except Exception as e:
